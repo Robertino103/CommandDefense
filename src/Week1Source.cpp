@@ -1,4 +1,10 @@
+#define _CRT_SECURE_NO_DEPRECATE
 #include "Week1Header.h"
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+
+#define Max_Chars_Count 200
 
 int Sum(int a, int b) { return a + b; }
 int Dif(int a, int b) { return a - b; }
@@ -51,11 +57,38 @@ void ParseSources()
 // Week 1 - using C API
 void ReadTopScore()
 {
-    // open file "UserScores.txt"
 
-    // read line by line: Name Points
-
-    // print the name with biggest points
-
-    // close file
+	FILE* fptr;
+	fptr = fopen("UserScores.txt", "r");
+	if (!fptr)
+	{
+		perror("Fisier gol");
+	}
+	int i, j, maxpoints = 0;
+	char line[Max_Chars_Count];
+	char numemax[Max_Chars_Count];
+	while (!feof(fptr))
+	{
+		fgets(line, Max_Chars_Count, fptr);
+		for (i = 0; i < strlen(line); i++)
+		{
+			if (line[i] >= 48 && line[i] <= 57) break;
+		}
+		for (j = i; j < strlen(line); j++)
+		{
+			if (!(line[j] >= 48 && line[j] <= 57)) break;
+		}
+		int points = 0;
+		for (int k = j - 1; k >= i; k--)
+		{
+			points = points * 10 + line[k];
+		}
+		if (points > maxpoints) {
+			strncpy(numemax, line, i - 1);
+			maxpoints = points;
+			numemax[i] = '\0';
+		}
+	}
+	printf(numemax);
+	fclose(fptr);
 }
