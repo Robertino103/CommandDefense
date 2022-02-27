@@ -62,7 +62,8 @@ void ReadTopScore()
 	fptr = fopen("UserScores.txt", "r");
 	if (!fptr)
 	{
-		perror("Fisier gol");
+		perror("Eroare deschidere fisier");
+		exit(1);
 	}
 	int i, j, maxpoints = 0;
 	char line[Max_Chars_Count];
