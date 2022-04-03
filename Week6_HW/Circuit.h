@@ -1,21 +1,26 @@
 #pragma once
-#include "Weather.h"
 #include "Car.h"
+#include "Dacia.h"
+#include "Mazda.h"
+#include "Mercedes.h"
+#include "Toyota.h"
+#include "Ford.h"
+
 class Circuit
 {
-	int length;
-	Weather weather;
-	Car* cars[10];
-	int count;
-	int max_count = 10;
-	float timp[10];
-
+private:
+	int CircuitLength;
+	Car* car[20];
+	float TimeToFinish[20];
+	bool Finished[20];
+	int NrOfCars;
+	int weather;
 public:
 	Circuit();
-	void SetLength(int length);
-	void SetWeather(Weather weather);
-	bool AddCar(Car* c);
+	void AddCar(Car* c);
+	void SetLength(int newlength);
+	void SetWeather(int);
 	void Race();
 	void ShowFinalRanks();
+	void ShowWhoDidNotFinish();
 };
-

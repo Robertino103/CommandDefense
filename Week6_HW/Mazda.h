@@ -1,9 +1,10 @@
 #pragma once
 #include "Car.h"
-class Dacia : public Car
+class Mazda : public Car
 {
 public:
-	Dacia();
+	Mazda();
 	float StartRace(bool&, int, int) override;
 	char* GetName() override;
 };
+

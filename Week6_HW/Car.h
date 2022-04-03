@@ -1,14 +1,13 @@
 #pragma once
-#include "Weather.h"
 
 class Car
 {
 protected:
-	int fuelCapacity;
-	int fuelConsumption;
-	int averageSpeed[3];
-	char* name;
+	int FuelCapacity;
+	float FuelConsumption;
+	int AverageSpeed[3];
+	char* CarName;
 public:
-	virtual float Cursa(int lungime_circuit, Weather weather) = 0;
+	virtual float StartRace(bool&, int, int) = 0;
+	virtual char* GetName() = 0;
 };
-

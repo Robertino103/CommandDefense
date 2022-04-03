@@ -1,5 +1,2 @@
 #pragma once
-
-enum Weather {
-	Sunny, Rain, Snow
-};
+enum Weather {Rain, Sunny, Snow};

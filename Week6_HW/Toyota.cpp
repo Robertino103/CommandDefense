@@ -1,28 +1,28 @@
-#include "Dacia.h"
+#include "Toyota.h"
 #include "Weather.h"
 
-Dacia::Dacia()
+Toyota::Toyota()
 {
 	FuelCapacity = 50;
-	FuelConsumption = 10;
-	AverageSpeed[Rain] = 50;
-	AverageSpeed[Sunny] = 75;
-	AverageSpeed[Snow] = 40;
-	CarName = (char*)"Dacia";
+	FuelConsumption = 30;
+	AverageSpeed[Rain] = 80;
+	AverageSpeed[Sunny] = 100;
+	AverageSpeed[Snow] = 64;
+	CarName = (char*)"Toyota";
 }
 
-float Dacia::StartRace(bool& b, int w, int circuitlength)
+float Toyota::StartRace(bool& b, int w, int circuitlength)
 {
 	int Speed = AverageSpeed[w];
 	float Distance = (FuelCapacity / FuelConsumption) * 100;
 	float Time_In_Hours = Distance / AverageSpeed[w];
 
 	b = Distance > circuitlength;
-	
+
 	return (Time_In_Hours * circuitlength / Distance);
 }
 
-char* Dacia::GetName()
+char* Toyota::GetName()
 {
 	return CarName;
 }

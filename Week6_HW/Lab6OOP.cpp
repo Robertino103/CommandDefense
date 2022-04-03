@@ -1,5 +1,7 @@
-#include "Circuit.h"
+#include <iostream>
 #include "Car.h"
+#include "Circuit.h"
+#include "Weather.h"
 
 int main()
 
@@ -7,7 +9,7 @@ int main()
 
 	Circuit c;
 
-	c.SetLength(100);
+	c.SetLength(200);
 
 	c.SetWeather(Weather::Rain);
 
